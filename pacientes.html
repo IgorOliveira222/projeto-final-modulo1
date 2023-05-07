@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meus Pacientes</title>
+    <link href="C:\Users\Note\Desktop\Projeto Modulo1\css\stylePacientes.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header class="header">
+        <div class="imgLogo" >
+         <img alt="image" height="35"  src="C:\Users\Note\Desktop\Projeto Modulo1\img\LogoX.png">
+        </div>
+        <div class="welcome">Bem vindo(a), <b>Igor</b> ▾
+        </div>
+    </header>
+    <div class="Card">
+      <h1 class="titleCard"> Meus Pacientes</h1>
+      <div class="headerCard">
+        <button class="bntRegister" onclick="openModal ('modal')"><i class="fa fa-plus-circle"></i>Novo Cadastro</button>
+        <div id="divSearch">
+        <input type="text" id="txtSearch" placeholder="Pesquisar"/>
+        <button id="btnSearch" type="button" style='float:right' ><i class="fa fa-search"></i> Filtrar</button>
+        </div>
+      </div>
+      <div>
+        <table border="1">
+          <thead>
+            <th class="center">Código</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th class="center">Ações</th>
+          </thead>
+          <tbody class="tableUser">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="modal">
+      <div id="modal-bottom">
+        <div class="modal-front">
+          <div class="modal-header">
+            <h3>Novo paciente</h3>
+            <button id="btnCloseModal" type="button" style='float:right' onclick="closeModal('modal')">X</button>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="CPF" >CPF</label>
+              <input id="CPF" name="CPF" class="input" placeholder="Digite" />
+            </section>
+            <section>
+              <label for="Name" >Nome</label>
+              <input id="Name" name="Name" class="input" placeholder="Digite"/>
+            </section>
+            <section>
+              <label for="DateBirth" >Data de Nascimento</label>
+              <input type="date" id="DateBirth" name="DateBirth" class="input" placeholder="22/02/1996"/>
+            </section>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="E-mail" >E-mail</label>
+              <input id="E-mail" name="E-mail" class="input" placeholder="Digite" />
+            </section>
+            <section>
+              <label for="Gender"  >Sexo/Gênero</label>
+              <input list="gender" type="list" id="Gender" name="Gender" class="input" placeholder="Digite"/>
+            </section>
+            <datalist id="gender">
+                <option> Masculino</option>
+                <option> Feminino</option>
+            </datalist>
+            <section>
+              <label for="Nationality" >Nacionalidade</label>
+              <input id="Nationality" name="Nationality" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="Naturalness" >Naturalidade</label>
+              <input id="Naturalness" name="Naturalness" class="input" placeholder="Digite" />
+            </section>
+            <section>
+              <label for="Profession" >Profissão</label>
+              <input id="Profession" name="Profession" class="input" placeholder="Digite"/>
+            </section>
+            <section>
+              <label for="Schooling" >Escolaridade</label>
+              <input id="Schooling" name="Schooling" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="MaritalStatus" >Estado Civil</label>
+              <input list="Marital" id="MaritalStatus" name="MaritalStatus" class="input" placeholder="Digite" />
+            </section>
+            <datalist id="Marital">
+                <option> Solteiro(a)</option>
+                <option> Casado(a)</option>
+                <option> Viuvo(a)</option>
+            </datalist>
+            <section>
+              <label for="mother" >Mãe</label>
+              <input id="mother" name="mother" class="input" placeholder="Digite"/>
+            </section>
+            <section>
+              <label for="father"  >Pai</label>
+              <input id="father" name="father" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+        </div>  
+        <div class="baseboard">
+          <div>* Campos Obrigatorios</div>
+          <div class="button">
+          <button type="button" class="bntCancelar" id="btnCancel" onclick="closeModal('modal')" >Cancelar</button>
+          <button type="button" class="bntCriar" id="bntCreate" onclick="sendingUserDate()">Criar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modalEdit">
+      <div id="modal-bottom">
+        <div class="modal-front">
+          <div class="modal-header">
+            <h3>Novo paciente</h3>
+            <button id="btnCloseModal" type="button" style='float:right' onclick="closeModal('modalEdit')">X</button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="CPF2" >CPF</label>
+              <input id="CPF2" name="CPF" class="input" placeholder="Digite" />
+            </div>
+            <div>
+              <label for="Name2" >Nome</label>
+              <input id="Name2" name="Name" class="input" placeholder="Digite"/>
+            </div>
+            <div>
+              <label for="DateBirth2" >Data de Nascimento</label>
+              <input type="date" id="DateBirth2" name="DateBirth" class="input" placeholder="22/02/1996"/>
+            </div>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="E-mail2" >E-mail</label>
+              <input id="E-mail2" name="E-mail" class="input" placeholder="Digite" />
+            </section>
+            <section>
+              <label for="Gender2"  >Sexo/Gênero</label>
+              <input list="gender" type="list" id="Gender2" name="Gender" class="input" placeholder="Digite"/>
+            </section>
+            <datalist id="gender">
+                <option> Masculino</option>
+                <option> Feminino</option>
+            </datalist>
+            <section>
+              <label for="Nationality2" >Nacionalidade</label>
+              <input id="Nationality2" name="Nationality" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="Naturalness2" >Naturalidade</label>
+              <input id="Naturalness2" name="Naturalness" class="input" placeholder="Digite" />
+            </section>
+            <section>
+              <label for="Profession2" >Profissão</label>
+              <input id="Profession2" name="Profession" class="input" placeholder="Digite"/>
+            </section>
+            <section>
+              <label for="Schooling2" >Escolaridade</label>
+              <input id="Schooling2" name="Schooling" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+          <div class="modal-body">
+            <section>
+              <label for="MaritalStatus2" >Estado Civil</label>
+              <input list="Marital" id="MaritalStatus2" name="MaritalStatus" class="input" placeholder="Digite" />
+            </section>
+            <datalist id="Marital">
+                <option> Solteiro(a)</option>
+                <option> Casado(a)</option>
+                <option> Viuvo(a)</option>
+            </datalist>
+            <section>
+              <label for="mother2" >Mãe</label>
+              <input id="mother2" name="mother" class="input" placeholder="Digite"/>
+            </section>
+            <section>
+              <label for="father2"  >Pai</label>
+              <input id="father2" name="father" class="input" placeholder="Digite"/>
+            </section>
+          </div>
+        </div>  
+        <div class="baseboard">
+          <div>* Campos Obrigatorios</div>
+          <div class="button">
+          <button type="button" class="bntCancelar" id="btnCancel" onclick="closeModal('modalEdit')" >Cancelar</button>
+          <button type="button" class="bntCreate" id="bntCreate" onclick="sendingUserDate()">Salvar alterações</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="C:\Users\Note\Desktop\Projeto Modulo1\js\Pacientes.js"></script>
+  </body>
+</html>

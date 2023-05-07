@@ -1,0 +1,49 @@
+{
+  "listarPacientes": [
+    {
+      "id": 5,
+      "cpf": "1423564",
+      "name": "igor",
+      "birth": "2023-05-04",
+      "email": "q3te",
+      "gender": "",
+      "Nationality": "wet",
+      "Naturalness": "rytw",
+      "Profession": "wrgw",
+      "Schooling": "wetw",
+      "MaritalStatus": "wt",
+      "mother": "wet",
+      "father": "wt"
+    },
+    {
+      "id": 6,
+      "cpf": "",
+      "name": "",
+      "birth": "",
+      "email": "",
+      "gender": "",
+      "Nationality": "",
+      "Naturalness": "",
+      "Profession": "",
+      "Schooling": "",
+      "MaritalStatus": "",
+      "mother": "",
+      "father": ""
+    },
+    {
+      "id": 7,
+      "cpf": "",
+      "name": "",
+      "birth": "",
+      "email": "",
+      "gender": "",
+      "Nationality": "",
+      "Naturalness": "",
+      "Profession": "",
+      "Schooling": "",
+      "MaritalStatus": "",
+      "mother": "",
+      "father": ""
+    }
+  ]
+}

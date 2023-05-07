@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="C:\Users\Note\Desktop\Projeto Modulo1\css\styleNovoFato.css" rel="stylesheet" />
+    <title>Novo Fato Relevante</title>
+</head>
+<body>
+    <div class="modal">
+        <div class="title">
+            <h2>Novo Fato Revelante</h2>
+            <button id="btnclose" type="submit" style='float:right'>X</button>
+        </div>
+        <div>
+            <div class="data">
+                <section>
+                    <label for="date" id="label" >Data*</label>
+                    <input id="date" name="date" class="inputDate" placeholder="24/01/2023"/>
+                </section>
+                <section>
+                    <label for="title" id="label" >Titulo*</label>
+                    <input id="title" name="title" class="inputTitle" placeholder="Digite"/>
+                </section>
+            </div>
+            <section>
+                <label for="description" id="label" >Descrição*</label>
+                <textarea id="description" name="description" class="inputDescription" placeholder="Text">
+                </textarea>
+            </section>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="fieldMandatory">*Campos obrigatorios</div>
+        <div class="button">
+            <button type="submit" class="bntCancelar" id="submit-btn">Cancelar</button>
+            <button type="submit" class="bntCriar" id="submit-btn">Criar</button>
+        </div>
+    </div>
+</body>
+</html>
