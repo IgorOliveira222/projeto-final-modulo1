@@ -8,7 +8,7 @@ body {
     background-color: #E5E5E5;
 }
 
-.modal{ 
+.modalSection{ 
     width: 635px;
     height: 538px;
     Top: 1549px;
@@ -28,7 +28,7 @@ body {
 
 }
 
-h2{
+.TitleH2{
     left: 4.75%;
     right: 71.96%;
     top: 3.78%;
@@ -54,7 +54,7 @@ h2{
     min-height: 100px;
 }
 
-h3{
+.TitleH3{
     margin: 20px 0;
     font-family: 'Montserrat';
     font-style: normal;
@@ -66,7 +66,7 @@ h3{
     color: #212121;
 }
 
-.generalData {
+.generalDataModal {
     width: 578px;
     display: flex;
     justify-content:space-between;
@@ -103,7 +103,7 @@ h3{
     color: #4F4F4F;
 }
 
-.h3{
+.titleH3{
     display: flex;
 }
 

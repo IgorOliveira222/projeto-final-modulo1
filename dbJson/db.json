@@ -29,21 +29,6 @@
       "MaritalStatus": "",
       "mother": "",
       "father": ""
-    },
-    {
-      "id": 7,
-      "cpf": "",
-      "name": "",
-      "birth": "",
-      "email": "",
-      "gender": "",
-      "Nationality": "",
-      "Naturalness": "",
-      "Profession": "",
-      "Schooling": "",
-      "MaritalStatus": "",
-      "mother": "",
-      "father": ""
     }
   ]
 }

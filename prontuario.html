@@ -12,13 +12,13 @@
     <header class="header">
         <div class="imgLogo">
          <img alt="image" height="35"  src="./img/LogoX.png">
-         <a href="pacientes.html">Voltar para listagem</a>
+         <a href="pacientes.html" class="back">Voltar para listagem</a>
         </div>
         <div class="welcome">Bem vindo(a), <b>Igor</b> ▾
         </div>
     </header>
     <div class="barHigher">
-        <h2>Prontuário</h2>
+        <h2 class="prontuarioH2">Prontuário</h2>
         <div>
             <input type="text" id="txtBusca" placeholder="Pesquisar"/>
             <button id="btnBusca" type="submit" style='float:right' ><i class="fa fa-search"></i> Filtrar</button>
@@ -27,32 +27,175 @@
     <div class="content">
         <div class="Card">
             <div class="identification">Identificação do paciente</div>
-            <div>
+            <div class="space">
                 <div class="generalData"><img alt="image" class="imgData" src="./img/Paciente.jpg">Paciente</div>
-                <div></div>
+                <p id="namePatient">Ana Ester Resende</p>
             </div>
-            <div>
+            <div class="space">
                 <div class="generalData"><img alt="image" class="imgData" src="./img/Nascimento.jpg">Nascimento</div>
-                <div></div>
+                <p id="birthPatient">10/09/2000</p>
             </div>
-            <div>
+            <div class="space">
                 <div class="generalData"><img alt="image" class="imgData" src="./img/Profissão.jpg">Profissão</div>
-                <div></div>
+                <p id="professionPatient">Designer</p>
             </div>
-            <div>
+            <div class="space">
                 <div class="generalData"><img alt="image" class="imgData" src="./img/Escolaridade.jpg">Escolaridade</div>
-                <div></div>
+                <p id="schoolingPatient">Superior incompleto</p>
             </div>
         </div>
         <div>
-            <div class="cardSession">
-                <div><img alt="image" class="imgData" src="./img/Sessão.jpg">Sessão</div>
-                <div><img alt="image" class="imgData" src="./img/Alfinete.jpg">Fato relevante</div>
+            <div class="cardSection">
+                <a class="click" onclick="openModalSection('modalSection1')"><img alt="image" class="imgData" src="./img/Sessão.jpg">Sessão</a>
+                <a class="click" onclick="openModalFacts('modalFacts1')"><img alt="image" class="imgData" src="./img/Alfinete.jpg">Fato relevante</a>
             </div>
-            <div class="filter"><img alt="image" src="./img/Rectangle.png"> Filtrar por:</div>
-            <div class="session"></div>
-            <div class="facts"></div>
+
+            <!-- Campo modal Sessão -->
+
+            <div class="modal" id="modalSection1">
+                <div class="modal-bottom-Section">
+                    <div class="modalSection">
+                        <div class="title">
+                            <h2 class="TitleH2">Nova Sessão</h2>
+                            <button id="btnclose" type="button" style='float:right' onclick="closeModal('modalSection1')">X</button>
+                        </div>
+                        <div class="scrollbar">
+                            <h3 class="TitleH3">Dados Gerais</h3>
+                            <div class="generalDataModal">
+                                <section>
+                                    <label for="date" id="label" >Data*</label>
+                                    <input id="date" name="date" class="input" placeholder="24/01/2023"/>
+                                </section>
+                                <section>
+                                    <label for="startTime" id="label" >Hora de inicio*</label>
+                                    <input id="startTime" name="startTime" class="input" placeholder="12:00"/>
+                                </section>
+                                <section>
+                                    <label for="endTime" id="label" >Hora fim*</label>
+                                    <input id="endTime" name="endTime" class="input" placeholder="13:00"/>
+                                </section>
+                            </div>
+                            <div class="h3">
+                                <h3>Sessão</h3>
+                            </div>
+                            <section>
+                                <label for="title" id="label" >Titulo*</label>
+                                <input id="title" name="title" class="inputTitle" placeholder="Digite"/>
+                            </section>
+                            <section>
+                                <label for="summary" id="label" >Resumo da sessão*</label>
+                                <textarea id="summary" name="summary" class="inputSummary" placeholder="Text">
+                                </textarea>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="fieldMandatory">*Campos obrigatorios</div>
+                        <div class="buttonModal">
+                            <button type="button" class="bntCancelar" id="submit-btn" onclick="closeModal('modalSection1')" >Cancelar</button>
+                            <button type="button" class="bntCriar" id="submit-btn">Criar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo modal Fato Relevante -->
+
+            <div class="modal" id="modalFacts1">
+                <div class="modal-bottom-Facts">
+                    <div class="modalFacts">
+                        <div class="title">
+                            <h2>Novo Fato Revelante</h2>
+                            <button id="btnclose" type="button" style='float:right' onclick="closeModal('modalFacts1')">X</button>
+                        </div>
+                        <div>
+                            <div class="data">
+                                <section>
+                                    <label for="date" id="label" >Data*</label>
+                                    <input id="date" name="date" class="inputDate" placeholder="24/01/2023"/>
+                                </section>
+                                <section>
+                                    <label for="title" id="label" >Titulo*</label>
+                                    <input id="title" name="title" class="inputTitleFacts" placeholder="Digite"/>
+                                </section>
+                            </div>
+                            <section>
+                                <label for="description" id="label" >Descrição*</label>
+                                <textarea id="description" name="description" class="inputDescription" placeholder="Text">
+                                </textarea>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="fieldMandatory">*Campos obrigatorios</div>
+                        <div class="buttonModal">
+                            <button type="button" class="bntCancelar" id="submit-btn" onclick="closeModal('modalFacts1')" >Cancelar</button>
+                            <button type="button" class="bntCriar" id="submit-btn">Criar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Campo de Sessão e Fatos  -->
+
+            <div>
+                <div><img alt="image" src="./img/Rectangle.png">
+                <div class="filter">
+                    <label for="filter" >Filtrar por:</label>
+                    <select id="filter" class="selectFilter" >
+                        <option>Todos</option>
+                        <option>Sessão</option>
+                        <option>Fatos relevantes</option>
+                    </select>
+                </div>
+            </div>
+            <div id="section">
+                <div class="headerSection">
+                    <div class="imgSection">
+                        <img src="./img/SessãoVetor.png">
+                    </div>
+                    <a href=""><img src="./img/T.pontos.png" ></a>
+                </div>
+                    <h3 id="idSection"> Sessão 02</h3>
+                    <p id="dateSection">22 de setembro de 2023</p>
+                    <div id="factSection">A paciente relatou que estava tendo dificuldades com sua família 
+                    e amigos próximos, pois demostra ansiedade diante de fatos cotidianos, 
+                    resultando em reações de raiva com as pessoas que estão próximas a ela. 
+                    Além disso, relatou brigas recentes com seus pais e namorado e, após a 
+                    briga, ficou mal
+                    </div>
+            </div>
+            <div id="facts">
+                <div class="headerSection">
+                    <div class="imgFact">
+                        <img src="./img/AlfineteVetor.png">
+                    </div>
+                    <a href=""><img src="./img/T.pontos.png" ></a>
+                </div>
+                    <h3 id="idSection"> Fato relevante</h3>
+                    <p id="dateSection">15 de setembro de 2023</p>
+                    <div id="factSection">Cliente não compareceu</div>
+            </div>
+            <div id="section">
+                <div class="headerSection">
+                    <div class="imgSection">
+                        <img src="./img/SessãoVetor.png">
+                    </div>
+                    <a href=""><img src="./img/T.pontos.png" ></a>
+                </div>
+                    <h3 id="idSection"> Sessão 01</h3>
+                    <p id="dateSection">01 de setembro de 2023</p>
+                    <div id="factSection">A paciente relatou que estava tendo dificuldades com sua família 
+                        e amigos próximos, pois demostra ansiedade diante de fatos cotidianos, 
+                        resultando em reações de raiva com as pessoas que estão próximas a ela. 
+                        Além disso, relatou brigas recentes com seus pais e namorado e, após a 
+                        briga, ficou mal
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="./js/Prontuario.js"></script>
 </body>
 </html>
