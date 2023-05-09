@@ -35,22 +35,6 @@ async function metodo (batata) {
 
 let editPatient = null
 
-
-//Const do modal
-
-const CPFUser = document.querySelector('#CPF')
-const NameUser = document.querySelector('#Name')
-const DateBirthUser = document.querySelector('#DateBirth')
-const EmailUser = document.querySelector('#E-mail')
-const GenderUser = document.querySelector('#Gender')
-const NationalityUser = document.querySelector('#Nationality')
-const NaturalnessUser = document.querySelector('#Naturalness')
-const ProfessionUser = document.querySelector('#Profession')
-const SchoolingUser = document.querySelector('#Schooling')
-const MaritalStatusUser = document.querySelector('#MaritalStatus')
-const motherUser = document.querySelector('#mother')
-const fatherUser = document.querySelector('#father')
-
 async function sendingUserDate () {
 
     const CPFUser = document.querySelector('#CPF')
@@ -102,7 +86,7 @@ async function getPatient (batata) {
 const addHtml = (batata)=> {
     let newUser = ''
     const addCollunm = document.querySelector(".tableUser")
-    batata.forEach((data, posicao)=> {
+    batata.forEach((data)=> {
         newUser = newUser + ` 
         <tr>
         <td class="center">${data.id}</td>
@@ -153,7 +137,7 @@ function renderModal() {
 async function openModalEdit(mn) {
     const apirequisition = await fetch(`http://localhost:3000/listarPacientes/${mn}`)
     const userData = await apirequisition.json()
-    console.log(userData)
+
     document.querySelector('#CPF2').value = userData.cpf
     document.querySelector('#Name2').value = userData.name
     document.querySelector('#DateBirth2').value = userData.birth
@@ -168,24 +152,27 @@ async function openModalEdit(mn) {
     document.querySelector('#father2').value = userData.father
 
     renderModal(userData)
-    await sendingUserDateEdit(userData)
+    // await sendingUserDateEdit(userData)
 }
 
-async function metodoEdit(id, itemList) {
-    console.log(id)
+async function metodoEdit(id) {
+
     await fetch(`http://localhost:3000/listarPacientes/${id}` , {
         method: 'PUT',
             headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type':'application/json'
             }, 
-            body: JSON.stringify(itemList)
+            body: JSON.stringify(id)
         })
+
+    editPatient = null
+
 }
 
-async function sendingUserDateEdit(data) {
-    editPatient = data
-    console.log(editPatient)
+
+
+async function sendingUserDateEdit(){
 
     const CPFUser = document.querySelector('#CPF2')
     const NameUser = document.querySelector('#Name2')
@@ -199,7 +186,6 @@ async function sendingUserDateEdit(data) {
     const MaritalStatusUser = document.querySelector('#MaritalStatus2')
     const motherUser = document.querySelector('#mother2')
     const fatherUser = document.querySelector('#father2')
-
 
     const newPatientEdit = {
         cpf:CPFUser.value,
@@ -215,14 +201,10 @@ async function sendingUserDateEdit(data) {
         mother:motherUser.value,
         father:fatherUser.value,
     }
-    if (editPatient.id){
-        await metodoEdit(editPatient.id,newPatientEdit)
-    }
-    else{
-        sendingUserDate(newPatientEdit)
-    }
 
-}
+    console.log (newPatientEdit)
+    await metodoEdit()
+} 
 
 
 async function deletPatient(idPatient) {
