@@ -83,7 +83,7 @@ a{
 }
 
 body {
-    background-image:url(./logo.png);
+    background-image:url(../img/logo.png);
     background-repeat: no-repeat;
     background-color: #E5E5E5;
 }

@@ -32,6 +32,10 @@ async function metodo (batata) {
         })
 }
 
+
+let editPatient = null
+
+
 //Const do modal
 
 const CPFUser = document.querySelector('#CPF')
@@ -146,10 +150,10 @@ function renderModal() {
     edit.style.display = edit ? "block" : "none"
 }
 
-async function openModalEdit (mn){
+async function openModalEdit(mn) {
     const apirequisition = await fetch(`http://localhost:3000/listarPacientes/${mn}`)
     const userData = await apirequisition.json()
-
+    console.log(userData)
     document.querySelector('#CPF2').value = userData.cpf
     document.querySelector('#Name2').value = userData.name
     document.querySelector('#DateBirth2').value = userData.birth
@@ -163,21 +167,25 @@ async function openModalEdit (mn){
     document.querySelector('#mother2').value = userData.mother
     document.querySelector('#father2').value = userData.father
 
-    renderModal()
+    renderModal(userData)
+    await sendingUserDateEdit(userData)
 }
 
-async function metodoEdit (batata) {
-    return fetch("http://localhost:3000/listarPacientes" , {
+async function metodoEdit(id, itemList) {
+    console.log(id)
+    await fetch(`http://localhost:3000/listarPacientes/${id}` , {
         method: 'PUT',
             headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type':'application/json'
             }, 
-            body: JSON.stringify(batata)
+            body: JSON.stringify(itemList)
         })
 }
 
-async function sendingUserDateEdit () {
+async function sendingUserDateEdit(data) {
+    editPatient = data
+    console.log(editPatient)
 
     const CPFUser = document.querySelector('#CPF2')
     const NameUser = document.querySelector('#Name2')
@@ -194,7 +202,6 @@ async function sendingUserDateEdit () {
 
 
     const newPatientEdit = {
-        id:"",
         cpf:CPFUser.value,
         name:NameUser.value,
         birth:DateBirthUser.value,
@@ -207,18 +214,18 @@ async function sendingUserDateEdit () {
         MaritalStatus:MaritalStatusUser.value,
         mother:motherUser.value,
         father:fatherUser.value,
+    }
+    if (editPatient.id){
+        await metodoEdit(editPatient.id,newPatientEdit)
+    }
+    else{
+        sendingUserDate(newPatientEdit)
+    }
+
 }
 
-    console.log(CPFUser.value)
-    await metodoEdit(newPatientEdit)
-    setTimeout(() => {
-        document.location.reload();
-    },500);
 
-}
-
-
-async function deletPatient (idPatient) {
+async function deletPatient(idPatient) {
     await fetch (`http://localhost:3000/listarPacientes/${idPatient}`,{
         method:'DELETE',
     })
