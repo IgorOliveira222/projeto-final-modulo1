@@ -14,21 +14,6 @@
       "MaritalStatus": "wt",
       "mother": "wet",
       "father": "wt"
-    },
-    {
-      "id": 6,
-      "cpf": "",
-      "name": "",
-      "birth": "",
-      "email": "",
-      "gender": "",
-      "Nationality": "",
-      "Naturalness": "",
-      "Profession": "",
-      "Schooling": "",
-      "MaritalStatus": "",
-      "mother": "",
-      "father": ""
     }
   ]
 }

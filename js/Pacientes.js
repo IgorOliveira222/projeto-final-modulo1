@@ -24,12 +24,11 @@ function closeModal (mn){
 async function metodo (batata) {
     return fetch("http://localhost:3000/listarPacientes" , {
         method: 'POST',
-          headers: {
+            headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type':'application/json'
-          }, 
-          body: JSON.stringify(batata)
-      
+            }, 
+            body: JSON.stringify(batata)
         })
 }
 
@@ -63,21 +62,21 @@ async function sendingUserDate () {
     const motherUser = document.querySelector('#mother')
     const fatherUser = document.querySelector('#father')
 
-  const newPatient = {
-       id:"",
-       cpf:CPFUser.value,
-       name:NameUser.value,
-       birth:DateBirthUser.value,
-       email:EmailUser.value,
-       gender:GenderUser.value,
-       Nationality:NationalityUser.value,
-       Naturalness:NaturalnessUser.value,
-       Profession:ProfessionUser.value,
-       Schooling:SchoolingUser.value,
-       MaritalStatus:MaritalStatusUser.value,
-       mother:motherUser.value,
-       father:fatherUser.value,
-  
+
+    const newPatient = {
+        id:"",
+        cpf:CPFUser.value,
+        name:NameUser.value,
+        birth:DateBirthUser.value,
+        email:EmailUser.value,
+        gender:GenderUser.value,
+        Nationality:NationalityUser.value,
+        Naturalness:NaturalnessUser.value,
+        Profession:ProfessionUser.value,
+        Schooling:SchoolingUser.value,
+        MaritalStatus:MaritalStatusUser.value,
+        mother:motherUser.value,
+        father:fatherUser.value,
     }
 
     console.log(newPatient);
@@ -90,7 +89,6 @@ async function sendingUserDate () {
 // Pegar o Paciente 
 
 async function getPatient (batata) {
-    
     const requisicao = await fetch("http://localhost:3000/listarPacientes")
     const patient = await requisicao.json()
 
@@ -112,7 +110,7 @@ const addHtml = (batata)=> {
             <button type="button" class="button-table" ><img src="./img/Delet.png" class="img-table" onclick="deletPatient(${data.id})" ></button>
         </td>
     </tr>
-     `
+    `
         addCollunm.innerHTML = newUser
     })
 
@@ -171,12 +169,11 @@ async function openModalEdit (mn){
 async function metodoEdit (batata) {
     return fetch("http://localhost:3000/listarPacientes" , {
         method: 'PUT',
-          headers: {
+            headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type':'application/json'
-          }, 
-          body: JSON.stringify(batata)
-      
+            }, 
+            body: JSON.stringify(batata)
         })
 }
 
@@ -197,31 +194,28 @@ async function sendingUserDateEdit () {
 
 
     const newPatientEdit = {
-         id:"",
-         cpf:CPFUser.value,
-         name:NameUser.value,
-         birth:DateBirthUser.value,
-         email:EmailUser.value,
-         gender:GenderUser.value,
-         Nationality:NationalityUser.value,
-         Naturalness:NaturalnessUser.value,
-         Profession:ProfessionUser.value,
-         Schooling:SchoolingUser.value,
-         MaritalStatus:MaritalStatusUser.value,
-         mother:motherUser.value,
-         father:fatherUser.value,
-    
-      }
-
-      console.log(CPFUser.value)
-      await metodoEdit(newPatientEdit)
-      setTimeout(() => {
-          document.location.reload();
-      },500);
-
+        id:"",
+        cpf:CPFUser.value,
+        name:NameUser.value,
+        birth:DateBirthUser.value,
+        email:EmailUser.value,
+        gender:GenderUser.value,
+        Nationality:NationalityUser.value,
+        Naturalness:NaturalnessUser.value,
+        Profession:ProfessionUser.value,
+        Schooling:SchoolingUser.value,
+        MaritalStatus:MaritalStatusUser.value,
+        mother:motherUser.value,
+        father:fatherUser.value,
 }
 
-  
+    console.log(CPFUser.value)
+    await metodoEdit(newPatientEdit)
+    setTimeout(() => {
+        document.location.reload();
+    },500);
+
+}
 
 
 async function deletPatient (idPatient) {
