@@ -22,7 +22,7 @@ function closeModal (mn){
 // Função Para salvar dados do input na API db.json
 
 async function metodo (batata) {
-    return fetch("http://localhost:3000/listarPacientes" , {
+    return fetch("https://projeto-arnia-85tw.onrender.com/listarPacientes" , {
         method: 'POST',
             headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -77,7 +77,7 @@ async function sendingUserDate () {
 // Pegar o Paciente 
 
 async function getPatient (batata) {
-    const requisicao = await fetch("http://localhost:3000/listarPacientes")
+    const requisicao = await fetch("https://projeto-arnia-85tw.onrender.com/listarPacientes")
     const patient = await requisicao.json()
 
 }
@@ -110,7 +110,7 @@ const addHtml = (batata)=> {
 const filter = async () => {
     const valueInput = document.querySelector("#txtSearch")
     const searchData = valueInput.value
-    const apirequisition = await fetch(`http://localhost:3000/listarPacientes?name_like=${searchData}`)
+    const apirequisition = await fetch(`https://projeto-arnia-85tw.onrender.com/listarPacientes?name_like=${searchData}`)
     const renderizatela = await apirequisition.json()
 
     addHtml(renderizatela)
@@ -118,7 +118,7 @@ const filter = async () => {
 
 
 async function showUser (){
-    const apirequisition = await fetch("http://localhost:3000/listarPacientes")
+    const apirequisition = await fetch("https://projeto-arnia-85tw.onrender.com/listarPacientes")
     const renderizatela = await apirequisition.json()
     addHtml(renderizatela)
 }
@@ -136,7 +136,7 @@ function renderModal() {
 }
 
 async function openModalEdit(mn) {
-    const apirequisition = await fetch(`http://localhost:3000/listarPacientes/${mn}`)
+    const apirequisition = await fetch(`https://projeto-arnia-85tw.onrender.com/listarPacientes/${mn}`)
     const userData = await apirequisition.json()
 
     document.querySelector('#idEdit').value = mn
@@ -160,7 +160,7 @@ async function openModalEdit(mn) {
 
 async function metodoEdit(id, data) {
 
-    await fetch(`http://localhost:3000/listarPacientes/${id}` , {
+    await fetch(`https://projeto-arnia-85tw.onrender.com/listarPacientes/${id}` , {
         method: 'PUT',
             headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -211,7 +211,6 @@ async function sendingUserDateEdit(){
     setTimeout(() => {
         document.location.reload();
     },500);
-    
     }
     else {
         metodo (newPatientEdit)
@@ -220,7 +219,7 @@ async function sendingUserDateEdit(){
 }
 
 async function deletPatient(idPatient) {
-    await fetch (`http://localhost:3000/listarPacientes/${idPatient}`,{
+    await fetch (`https://projeto-arnia-85tw.onrender.com/listarPacientes/${idPatient}`,{
         method:'DELETE',
     })
     window.location.reload(true);
