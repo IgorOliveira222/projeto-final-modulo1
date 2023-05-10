@@ -94,7 +94,7 @@ const addHtml = (batata)=> {
         <td>${data.name}</td>
         <td>${data.cpf}</td>
         <td class="center" id="action">
-            <button type="button" class="button-table" ><a href="Prontuario.html"><img src="./img/Document.png" class="img-table" ></a></button>
+            <button type="button" class="button-table" ><a href="prontuario.html"><img src="./img/Document.png" class="img-table" ></a></button>
             <button type="button" class="button-table" onclick="openModalEdit(${data.id})" ><img src="./img/Edit.png" class="img-table" ></button>
             <button type="button" class="button-table" ><img src="./img/Delet.png" class="img-table" onclick="deletPatient(${data.id})" ></button>
         </td>
